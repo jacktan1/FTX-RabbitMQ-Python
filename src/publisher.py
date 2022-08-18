@@ -31,6 +31,8 @@ class Publisher:
         self.queue = queue_name
         self.ticker_list = ticker_list
         self.api_uri = "https://ftx.com/api/markets/"
+        # Request timeout (seconds)
+        self.request_timeout = 10
         # Max number of retries for GET request
         self.max_retries = 5
         # Seconds to wait between retries
@@ -79,7 +81,8 @@ class Publisher:
                 success_response = False
                 while not success_response:
                     try:
-                        resp = requests.get(f"https://ftx.com/api/markets/{ticker}")
+                        resp = requests.get(url=f"https://ftx.com/api/markets/{ticker}",
+                                            timeout=self.request_timeout)
 
                         # Successful GET request
                         if resp.status_code == 200:
