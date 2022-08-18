@@ -165,6 +165,8 @@ class Consumer:
                                    auto_ack=True,
                                    on_message_callback=self.add_to_resp_df)
 
+        self.logger.info(f"Consuming from queue `{self.queue}`...")
+
         self.channel.start_consuming()
 
     def add_to_resp_df(self, ch, method, properties, body):

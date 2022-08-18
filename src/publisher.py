@@ -63,7 +63,8 @@ class Publisher:
                                 exchange=self.exchange,
                                 routing_key=self.routing_key)
 
-        self.logger.info(f"Bound exchange `{exchange_name}` to queue `{queue_name}` with routing key `{routing_key}`")
+        self.logger.info(f"Bound exchange `{self.exchange}` to queue `{self.queue}` "
+                         f"with routing key `{self.routing_key}`.")
 
     def start(self):
         """
@@ -95,7 +96,7 @@ class Publisher:
                         else:
                             self.logger.info(f"Status code: {resp.status_code} \n {resp.text}")
 
-                    except requests.exceptions.Timeout or requests.exceptions.SSLError:
+                    except requests.exceptions.Timeout or requests.exceptions.ConnectionError:
                         self.logger.info(f"Request failed!")
 
                     if not success_response:
