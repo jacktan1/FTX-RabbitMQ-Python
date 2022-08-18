@@ -111,4 +111,5 @@ class Publisher:
                             time.sleep(self.sleep)
 
             # Finished iterating through all tickers, wait for `self.publish_interval` seconds
+            self.logger.info(f"Finished run! Sleeping for {self.publish_interval} seconds...")
             time.sleep(self.publish_interval)

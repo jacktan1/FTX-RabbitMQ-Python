@@ -10,7 +10,7 @@ def run():
                    "LINK-PERP", "MATIC-PERP", "XMR-PERP", "FTM-PERP", "NEAR-PERP", "SAND-PERP", "DOT-PERP", "OP-PERP",
                    "AXS-PERP", "APE-PERP", "WAVES-PERP", "CEL-PERP", "CRV-PERP",
                    "GRT-PERP", "AAVE-PERP", "SNX-PERP"]
-    exchange_name = "ftx_exchange"
+    exchange_name = "ftx_exchange_python"
     queue_name = "ftx_queue_python"
     routing_key = "ftx"
 
